@@ -1128,6 +1128,16 @@ class PlacesViewController: ViewController, UISearchBarDelegate, ArticlePopoverV
         viewMode = .map
     }
     
+    @objc func updateViewModeToLocation(_ lat: String, _ lon: String) {
+        updateViewModeToMap()
+        guard let latitude = Double(lat), let longitude = Double(lon) else {
+            return
+        }
+        dispatchOnMainQueueAfterDelayInSeconds(0.5) { [weak self] in
+            self?.zoomAndPanMapView(toLocation: CLLocation(latitude: latitude, longitude: longitude))
+        }
+    }
+    
     func selectArticlePlace(_ articlePlace: ArticlePlace) {
         mapView.selectAnnotation(articlePlace, animated: articlePlace.identifier != previouslySelectedArticlePlaceIdentifier)
         previouslySelectedArticlePlaceIdentifier = articlePlace.identifier
