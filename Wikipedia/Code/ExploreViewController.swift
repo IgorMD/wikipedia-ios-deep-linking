@@ -166,12 +166,6 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
         AppInteractionFunnel.shared.logSettingsDidTapSettingsIcon()
         settingsPresentationDelegate?.userDidTapSettings(from: self)
     }
-
-    // MARK: - Refresh
-    
-    override func refreshControlActivated() {
-        super.refreshControlActivated()
-    }
     
     open override func refresh() {
         updateFeedSources(with: nil, userInitiated: true) {
@@ -831,12 +825,6 @@ class ExploreViewController: ColumnarCollectionViewController, ExploreCardViewCo
                 self.push(viewControllerToCommit, animated: true)
             }
         }
-    }
-
-    // MARK: ArticlePreviewingDelegate
-    
-    override func shareArticlePreviewActionSelected(with articleController: ArticleViewController, shareActivityController: UIActivityViewController) {
-        super.shareArticlePreviewActionSelected(with: articleController, shareActivityController: shareActivityController)
     }
 
     override func readMoreArticlePreviewActionSelected(with articleController: ArticleViewController) {

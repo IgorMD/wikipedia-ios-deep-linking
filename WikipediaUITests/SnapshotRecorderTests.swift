@@ -50,11 +50,6 @@ class WikipediaUITests: XCTestCase {
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     // Prepends an auto-incremented numeric prefix to screenshot names so they appear on the index html page in the order they were captured.
     func wmf_snapshot(_ name: String, timeWaitingForIdle timeout: TimeInterval = 45) {
         snapshot("\(String(format: "%04d", snapshotIndex))-\(name)", timeWaitingForIdle: timeout)
